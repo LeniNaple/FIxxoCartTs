@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '../components/MenuIcon'
-import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
 
-const MainMenuSection = () => {
-  const [showMenu, setShowMenu] = useState(false)
-  const { cartQuantity } = useShoppingCart()
+const MainMenuSection: React.FC = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false)
+  const { totalQuantity } = useShoppingCartContext() as ShoppingCartContextType
   
   const toggleMenu = () => {
     setShowMenu(!showMenu)
@@ -27,9 +27,9 @@ const MainMenuSection = () => {
         <div className="menu-icons">
             <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" />
             <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare" />
-            <MenuIcon quantity="3" link="/wishlist" icon="fa-regular fa-heart" />
+            <MenuIcon quantity={3} link="/wishlist" icon="fa-regular fa-heart" />
             <button className="menu-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{cartQuantity}</span>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{totalQuantity}</span>
                 <i className="fa-regular fa-bag-shopping" ></i>
             </button>
         </div>

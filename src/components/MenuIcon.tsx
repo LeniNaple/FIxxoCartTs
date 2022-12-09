@@ -4,8 +4,8 @@ import { NavLink} from 'react-router-dom'
 interface MenuIconType {
   link: string
   icon: string
-  quantity: number
-  hideOnMobile: boolean
+  quantity?: number
+  hideOnMobile?: boolean
 
 }
 

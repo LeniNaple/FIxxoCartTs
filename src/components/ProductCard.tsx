@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
 import { ProductItem } from '../models/ProductModels'
 import { currencyFormatter } from '../utilities/CurrencyFormatter'
 
@@ -11,7 +11,7 @@ interface ProductCardType {
 
 const ProductCard: React.FC<ProductCardType> = ({product}) => {
 
-    const { incrementQuantity } = useShoppingCart()
+    const { increment } = useShoppingCartContext() as ShoppingCartContextType
 
   return (
 
@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardType> = ({product}) => {
                 <div className="card-interaction">
                     <button className="card-balls"><i className="fa-regular fa-heart"></i></button>
                     <button className="card-balls"><i className="fa-regular fa-code-compare"></i></button>
-                    <button onClick={() => incrementQuantity ({articleNumber: product.articleNumber, product: product})} className="card-balls"><i className="fa-regular fa-bag-shopping"></i></button>
+                    <button onClick={() => increment ({articleNumber: product.articleNumber, product: product, quantity: 1})} className="card-balls"><i className="fa-regular fa-bag-shopping"></i></button>
                 </div>
 
                 <div className="card-quick-view">
