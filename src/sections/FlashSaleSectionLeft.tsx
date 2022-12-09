@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react'
 import ProductGridSection from './ProductGridSection'
-import { useProductContext } from '../contexts/ProductContext'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 import { NavLink } from 'react-router-dom'
 
-const FlashSaleSectionRight = ({btnTitle}) => {
-    const {flash, getFlash} = useProductContext()
+interface FlashSaleSectionLeftType {
+    btnTitle: string
+}
+
+
+const FlashSaleSectionLeft: React.FC<FlashSaleSectionLeftType> = ({btnTitle}) => {
+    const {flash, getFlash} = useProductContext() as ProductContextType
 
     useEffect (() => {
         getFlash(4)
       }, [])
 
   return (
-    <section className="flash-sale-right container">
-        <div className="two-for-right">
-            <ProductGridSection items={flash} />
-        </div>
+    <section className="flash-sale-left container">
         <div className="two-for-left"> 
             <h1>2 FOR USD $29</h1>
             <NavLink to="/products" className="btn-theme-white">
@@ -25,8 +27,11 @@ const FlashSaleSectionRight = ({btnTitle}) => {
                 <div className="line-button-r-2"></div>
             </NavLink>
         </div>
+        <div className="two-for-right">
+            <ProductGridSection items={flash} />
+        </div>
     </section>
   )
 }
 
-export default FlashSaleSectionRight
+export default FlashSaleSectionLeft

@@ -4,7 +4,7 @@ import { ProductItem } from '../models/ProductModels'
 
 
 interface ProductGridType {
-  title: string
+  title?: string
   items: ProductItem[]
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 import ProductGridSection from '../sections/ProductGridSection'
-import { useProductContext } from '../contexts/ProductContext'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 import ContactSection from '../sections/ContactSection'
 import BannerSection from '../sections/BannerSection'
 import FlashSaleSectionLeft from '../sections/FlashSaleSectionLeft'
@@ -10,14 +10,12 @@ import FlashSaleSectionRight from '../sections/FlashSaleSectionRight'
 import ShowcaseSection from '../sections/ShowcaseSection'
 
 const HomeView = () => {
-  const {products, getProducts} = useProductContext()
-  const {flash, getFlash} = useProductContext()
+  const {products, getProducts} = useProductContext() as ProductContextType
 
   window.parent.document.title = 'Fixxo.'
 
   useEffect (() => {
     getProducts(8)
-    getFlash(4)
   }, [])
 
 
@@ -29,8 +27,8 @@ const HomeView = () => {
       </div> 
       <ProductGridSection title="Featured Products" items={products} />
       <BannerSection />
-      <FlashSaleSectionLeft btnTitle="FLASH SALE" items={flash} />
-      <FlashSaleSectionRight btnTitle="FLASH SALE" items={flash} />
+      <FlashSaleSectionLeft btnTitle="FLASH SALE" />
+      <FlashSaleSectionRight btnTitle="FLASH SALE" />
       <ContactSection />
       <FooterSection />
     </>

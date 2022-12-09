@@ -5,7 +5,7 @@ import FooterSection from '../sections/FooterSection'
 import BreadCrumbSection from '../sections/BreadCrumbSection'
 
 
-const ShoppingCartView = () => {
+const ShoppingCartView: React.FC = () => {
 
   window.parent.document.title = 'Shopping-Cart / Fixxo'
 

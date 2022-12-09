@@ -4,24 +4,21 @@ import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 import BreadCrumbSection from '../sections/BreadCrumbSection'
 import ProductDetails from '../sections/ProductDetails'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 
-const ProductDetailsView = () => {
-  const {id} = useParams()
-  const [product, setProduct] = useState({})
+const ProductDetailsView: React.FC  = () => {
+  const {id} = useParams<string>()
+  const productContext = useProductContext() as ProductContextType
 
-  useEffect(() => {
-      const fetchData = async () => {
-          const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
-          setProduct(await result.json())
-      }
-      fetchData()
-  }, [id])
+    useEffect(() => {
+        productContext.get(id)
+    }, [])
 
   return (
   <>
       <MainMenuSection />
       <BreadCrumbSection currentPage="Products" />
-      <ProductDetails product={product} />
+      <ProductDetails product={productContext.product} />
       <FooterSection />
   </>
 )}

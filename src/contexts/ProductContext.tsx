@@ -11,7 +11,7 @@ export interface ProductContextType {
     products: ProductItem[]
     featured: ProductItem[]
     flash: ProductItem[]
-    get: (articleNumber: string) => void
+    get: (articleNumber?: string) => void
     getProducts: (take?: number) => void
     getFeatured: (take?: number) => void
     getFlash: (take?: number) => void
@@ -30,9 +30,11 @@ const ProductProvider: React.FC<ProductProviderType> = ({ children }) => {
     const [featured, setFeatured] = useState<ProductItem[]>([])
     const [flash, setFlash] = useState<ProductItem[]>([])
   
-    const get = async ( articleNumber: string ) => {
-        const res = await fetch(baseUrl + `/${articleNumber}`)
-        setProduct(await res.json())
+    const get = async ( articleNumber?: string ) => {
+        if (articleNumber !== undefined) {
+            const res = await fetch(baseUrl + `/${articleNumber}`)
+            setProduct(await res.json())
+        } 
     }
 
     const getProducts = async (take: number = 0) => {

@@ -3,10 +3,10 @@ import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 import ProductGridSection from '../sections/ProductGridSection'
 import BreadCrumbSection from '../sections/BreadCrumbSection'
-import { useProductContext } from '../contexts/ProductContext'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 
-const ProductsView = () => {
-  const {products, getProducts} = useProductContext()
+const ProductsView: React.FC = () => {
+  const {products, getProducts} = useProductContext() as ProductContextType
 
   window.parent.document.title = 'Products / Fixxo'
 
