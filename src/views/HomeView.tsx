@@ -10,12 +10,12 @@ import FlashSaleSectionRight from '../sections/FlashSaleSectionRight'
 import ShowcaseSection from '../sections/ShowcaseSection'
 
 const HomeView = () => {
-  const {products, getProducts} = useProductContext() as ProductContextType
+  const {featured, getFeatured} = useProductContext() as ProductContextType
 
   window.parent.document.title = 'Fixxo.'
 
   useEffect (() => {
-    getProducts(8)
+    getFeatured(8)
   }, [])
 
 
@@ -25,7 +25,7 @@ const HomeView = () => {
         <MainMenuSection /> 
         <ShowcaseSection />
       </div> 
-      <ProductGridSection title="Featured Products" items={products} />
+      <ProductGridSection title="Featured Products" items={featured} />
       <BannerSection />
       <FlashSaleSectionLeft btnTitle="FLASH SALE" />
       <FlashSaleSectionRight btnTitle="FLASH SALE" />
@@ -36,3 +36,11 @@ const HomeView = () => {
 }
 
 export default HomeView
+
+function getFlash(arg0: number) {
+  throw new Error('Function not implemented.')
+}
+function getFeatured(arg0: number) {
+  throw new Error('Function not implemented.')
+}
+
