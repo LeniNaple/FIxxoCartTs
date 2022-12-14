@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardType> = ({product}) => {
                 </div>
 
                 <div className="card-quick-view">
-                    <NavLink to={`/products/${product.articleNumber}`} className="btn-theme-red">
+                    <NavLink to={`/products/details/${product.articleNumber}`} className="btn-theme-red">
                         <div className="line-button-l-1"></div>
                         <div className="line-button-l-2"></div>
                         <p>QUICK VIEW</p>
