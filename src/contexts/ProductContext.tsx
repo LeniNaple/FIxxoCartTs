@@ -62,7 +62,6 @@ const ProductProvider: React.FC<ProductProviderType> = ({ children }) => {
         setFlash(await res.json())
     }
 
-
     return <ProductContext.Provider value={{product, products, featured, flash, get, getProducts, getFeatured, getFlash}}>
         {children}
     </ProductContext.Provider>
