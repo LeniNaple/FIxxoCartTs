@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardType> = ({product}) => {
                     <i className="fa-sharp fa-solid fa-star"></i>
                     <i className="fa-sharp fa-solid fa-star"></i>
                 </div>
-                <h2><span></span>{currencyFormatter(product.price)}</h2>
+                <h2><span>{product.oldPrice}  </span>{currencyFormatter(product.price)}</h2>
             </div>
         </div> 
 

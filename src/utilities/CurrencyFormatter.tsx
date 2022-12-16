@@ -3,3 +3,4 @@ const currencyFormat = new Intl.NumberFormat( 'en-US', {currency: 'USD', style: 
 export const currencyFormatter = (value: number) => {
     return currencyFormat.format(value)
 }
+
