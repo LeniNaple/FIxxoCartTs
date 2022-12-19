@@ -5,6 +5,8 @@ export interface ProductItem {
     name: string
     category: string
     price: number
+    rating?: number
     oldPrice?: string
     imageName: string
 }
+

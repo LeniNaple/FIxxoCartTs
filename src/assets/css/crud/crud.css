@@ -1,0 +1,42 @@
+.CRUD-products {
+    background-color: hsl(0, 0%, 40%);
+}
+    .CRUD-products .product-gid {
+        background-color: hsl(0, 0%, 40%);
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid blue;
+        align-items: center;
+        justify-content: center;
+    }
+        .CRUD-products .product-gid .container {
+            border: 1px solid hsl(0, 0%, 40%);
+        }
+            .CRUD-products .product-gid .grid {
+                display: flex;
+                flex-direction: column;
+            }
+                .CRUD-products .product-gid .card-grid {
+                    display: flex;
+                }
+                    .CRUD-products .product-gid .card-grid .carda {
+                        display: flex;
+                        background-color: white;
+                        width: 100%;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                        .CRUD-products .product-gid .card-grid .carda p {
+                            flex: 1;
+                            text-align: center;
+                            color: hsla(0, 88%, 40%, 0.676);
+                        }
+                            .CRUD-products .product-gid .card-grid .carda b {
+                                color: hsl(0, 0%, 0%);
+                            }
+                        .CRUD-products .product-gid .carda img {
+                            display: flex;
+                            height: 100px;
+                            width: 100px;
+                        }

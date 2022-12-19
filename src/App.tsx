@@ -10,6 +10,8 @@ import ProductsDetailsView from './views/ProductsDetailsView';
 import ProductProvider from './contexts/ProductContext';
 import { ShoppingCartProvider} from './contexts/ShoppingCartContext';
 import CategoriesView from './views/CategoriesView';
+import CRUDView from './views/CRUDView';
+import UpdateProducts from './CRUD-components/UpdateProducts';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
               <Route path="/contacts" element={<ContactsView />} />
               <Route path="/categories" element={<CategoriesView />} />
               <Route path="/products" element={<ProductsView />} />
+              <Route path="/products/CRUD" element={<CRUDView />} />
+              <Route path="/products/CRUD/:id" element={<UpdateProducts />} />
               <Route path="/products/details/:id" element={<ProductsDetailsView />} />
             </Routes>
           </ProductProvider>
