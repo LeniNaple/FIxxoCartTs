@@ -11,10 +11,12 @@ export interface ProductContextType {
     products: ProductItem[]
     featured: ProductItem[]
     flash: ProductItem[]
+    poker: ProductItem[]
     get: (articleNumber?: string) => void
     getProducts: () => void
     getFeatured: (take?: number) => void
     getFlash: (take?: number) => void
+    getPoker: (take?: number) => void
 }
 
 export const ProductContext = createContext<ProductContextType | null>(null)
@@ -29,6 +31,7 @@ const ProductProvider: React.FC<ProductProviderType> = ({ children }) => {
     const [products, setProducts] = useState<ProductItem[]>([])
     const [featured, setFeatured] = useState<ProductItem[]>([])
     const [flash, setFlash] = useState<ProductItem[]>([])
+    const [poker, setPoker] = useState<ProductItem[]>([])
   
     const get = async ( articleNumber?: string ) => {
         if (articleNumber !== undefined) {
@@ -62,7 +65,17 @@ const ProductProvider: React.FC<ProductProviderType> = ({ children }) => {
         setFlash(await res.json())
     }
 
-    return <ProductContext.Provider value={{product, products, featured, flash, get, getProducts, getFeatured, getFlash}}>
+    const getPoker = async (take: number = 0) => {
+        let url = `${baseUrl}/poker`
+
+        if (take !== 0){
+            url += `/${take}`
+        }
+        const res = await fetch(url)
+        setPoker(await res.json())
+    }
+
+    return <ProductContext.Provider value={{product, products, featured, flash, poker, get, getProducts, getFeatured, getFlash, getPoker}}>
         {children}
     </ProductContext.Provider>
 }

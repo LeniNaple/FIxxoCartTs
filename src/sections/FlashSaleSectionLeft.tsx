@@ -9,10 +9,10 @@ interface FlashSaleSectionLeftType {
 
 
 const FlashSaleSectionLeft: React.FC<FlashSaleSectionLeftType> = ({btnTitle}) => {
-    const {flash, getFlash} = useProductContext() as ProductContextType
+    const {poker, getPoker} = useProductContext() as ProductContextType
 
     useEffect (() => {
-        getFlash(4)
+        getPoker(4)
       }, [])
 
   return (
@@ -28,7 +28,7 @@ const FlashSaleSectionLeft: React.FC<FlashSaleSectionLeftType> = ({btnTitle}) =>
             </NavLink>
         </div>
         <div className="two-for-right">
-            <ProductGridSection items={flash} />
+            <ProductGridSection items={poker} />
         </div>
     </section>
   )
