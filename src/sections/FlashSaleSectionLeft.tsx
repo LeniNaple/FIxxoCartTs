@@ -14,7 +14,7 @@ const FlashSaleSectionLeft: React.FC<FlashSaleSectionLeftType> = ({btnTitle}) =>
     useEffect (() => {
         getPoker(4)
       }, [])
-
+ 
   return (
     <section className="flash-sale-left container">
         <div className="two-for-left"> 
